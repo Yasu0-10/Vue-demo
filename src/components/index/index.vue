@@ -6,7 +6,7 @@
 		<p>父组件姓名：{{name}}</p>
 		<button @click='change'>父组件改名</button>
 		<input type="text" v-model='name'>
-		<child v-model='name'></child>
+		<child v-model='name' v-bind='obj'></child>
 		<h2>{{obj.name}}</h2>
 		<p @click="$router.push({path: '/form'})">跳到表单</p>
   </div>
@@ -29,7 +29,9 @@ export default {
 			name: '',
 			num: 1,
 			obj: {
-				name: '展示'
+				name: '展示',
+				sex: '女',
+				has: '???'
 			}
 		};
 	},

@@ -23,6 +23,9 @@ export default {
 	},
 	computed: {
 	},
+	mounted() {
+		console.log(this.$attrs, 888);
+	},
 	methods: {
 		change(){
 			this.$emit('fn', this.hh);
