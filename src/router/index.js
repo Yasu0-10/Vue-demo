@@ -10,6 +10,7 @@ import red from '@/components/index/red';
 import swiper from '@/components/swiper';
 import export1 from '@/components/export/index';
 import slot from '@/components/slot';
+import question from '@/components/question';
 
 // 把路由当成一个插件来使用
 // 模块化工程中 必须要用 Vue.use() 安装一下
@@ -72,6 +73,11 @@ export default new Router({
 			path: '/slot',
 			name: 'slot',
 			component: slot
+		},
+		{
+			path: '/question', // 题库
+			name: 'question',
+			component: question
 		}
 	]
 });

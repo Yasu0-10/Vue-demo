@@ -2,10 +2,38 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="./static/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./static/admin_base.css">
+		<link rel="stylesheet" type="text/css" href="./static/question_import.css">
+		<link rel="stylesheet" type="text/css" href="./static/froala_editor.pkgd.min.css">
   </head>
   <body>
+		<script type="text/javascript" src="./static/jquery.min.js"></script>
+<script type="text/javascript" src="./static/froala_editor.pkgd.min.js"></script>
+<script type="text/javascript" src="./static/markdown-v1.1.js"></script>
+<script type="text/javascript" src="./static/zh_cn.js"></script>
     <div title="aaa" id="app"></div>
-    <!-- built files will be auto injected -->
+		<!-- built files will be auto injected -->
+		<script type="text/javascript" src="./static/admin_importQuestionsOnline.js"></script>
+		<script>
+			var upload_file= '';
+        var qt_type="1";
+        var typeName = ['单选题','多选题','判断题','填空题','问答题'];
+        var nameReg = /^\n?\s*(([0-9]+\s*[.|、])|(((\()|（)[0-9]+((\))|）)))\s*(.*?)\s*(?:\n|$)/g;
+        var singleReg = /^\n?\s*(答案[:：])\s*(.*?)\s*(?:\n|$)/g;
+        var fillReg = /([\(|\（]\s*[\)|\）])/g;
+        var labelOpen = '0';//试题标签功能是否开启:1开启，0关闭
+        var sourceFrom = '';//标记是否从弹窗点击
+        // 复制考试链接
+        //如果是excel
+        if(window.location.search.indexOf("upload=excel") > 0) {
+            $("#excel_import").show();
+            $(".tab-content").hide();
+            $("#showExcel").addClass("active");
+        }else {
+            $("#showTabContent").addClass("active");
+        }
+		</script>
   </body>
 </html>
