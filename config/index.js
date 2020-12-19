@@ -9,8 +9,17 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {},
+		assetsPublicPath: '/',
+		proxyTable: {
+			'/proxyApi': {
+				target: 'https://jsonplaceholder.typicode.com/posts/', // 测试
+				// target: 'http://gate.233863.com', // 正式
+				changeOrigin: true,
+				pathRewrite: {
+					'^/proxyApi': ''
+				}
+			}
+		},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

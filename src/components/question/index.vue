@@ -60,7 +60,7 @@ export default {
 	created() {
 	},
 	mounted() {
-		initFroala();
+		// initFroala();
 	},
 	methods: {
 	}
