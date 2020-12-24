@@ -13,6 +13,7 @@ import slot from '@/components/slot';
 import question from '@/components/question';
 
 import wangeditor from '@/components/wangeditor';
+import ueditor from '@/components/ueditor';
 
 // 把路由当成一个插件来使用
 // 模块化工程中 必须要用 Vue.use() 安装一下
@@ -85,6 +86,11 @@ export default new Router({
 			path: '/wangeditor', // 富文本编辑器
 			name: 'wangeditor',
 			component: wangeditor
+		},
+		{
+			path: '/ueditor', // 富文本编辑器
+			name: 'ueditor',
+			component: ueditor
 		}
 	]
 });

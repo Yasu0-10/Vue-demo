@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<h1>wangEditor组件</h1>
+		
 		<div class='editor-wrap'>
       <div ref="editor"></div>
 		</div>
