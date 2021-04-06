@@ -1,4 +1,8 @@
+# eslint 默认会忽略 node_modules 目录和 build 目录下除了 index.js 以外的所有文件
 /build/
+/node_modules/
 /config/
 /dist/
-/*.js
+/static/
+/assets/
+/src/assets/

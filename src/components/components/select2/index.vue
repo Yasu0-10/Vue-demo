@@ -1,52 +1,55 @@
 <template>
-    <div class="searchZJ">
-      <div class="f-search">
-          <div class="f-searchIn" v-bind:class="{searchInFous: this.fousFlag}">{{this.searchValue}}<span v-bind:class="{searchActive: this.searchFlag}" v-on:click="searchDown"></span></div>
-          <div class="f-searchXl" v-if="this.dataHas" v-bind:style="{height:this.searchFous, border:this.searchBorder}">
-              <div v-for="item in searchList" v-on:click="choseValue(item)" :key="item">{{item}}</div>
-          </div>
-          <div class="f-searchXl" v-else >
-              <div>暂无数据</div>
-          </div>
-      </div>
-    </div>
+	<div class="searchZJ">
+		<div class="f-search">
+			<div class="f-searchIn" :class="{ searchInFous: fousFlag }">{{ searchValue }}<span :class="{ searchActive: searchFlag }" @click="searchDown"></span></div>
+			<div v-if="dataHas" class="f-searchXl" :style="{
+				height: searchFous,
+				border: searchBorder
+			}">
+				<div v-for="item in searchList" :key="item" @click="choseValue(item)">{{ item }}</div>
+			</div>
+			<div v-else class="f-searchXl">
+				<div>暂无数据</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script type="text/ecmascript-6">
-export default {
-	data () {
-		return {
-			data: [],
-			dataHas: true,
-			searchFlag: false,
-			searchFous: '0',
-			fousFlag: false,
-			searchValue: '',
-			searchBorder: 'none'
-		};
-	},
-	props: {
-		searchList: Array,
-		selectValue: Object
-	},
-	mounted () {
-		this.data = this.searchList;
-	},
-	methods: {
-		searchDown () {
-			this.searchFlag === false ? this.searchFlag = true : this.searchFlag = false;
-			this.searchFous === '0' ? this.searchFous = 'auto' : this.searchFous = '0';
-			this.searchBorder === 'none' ? this.searchBorder = '1px solid #D9D9D9' : this.searchBorder = 'none';
-			this.fousFlag === false ? this.fousFlag = true : this.fousFlag = false;
+	export default {
+		props: {
+			searchList: Array,
+			selectValue: Object
 		},
-		choseValue (value) {
-			this.searchValue = value;
-			this.searchDown();
-			// this.selectValue.data = '我被修改了'
-			this.$emit('selectFunc', value);
+		data() {
+			return {
+				data: [],
+				dataHas: true,
+				searchFlag: false,
+				searchFous: '0',
+				fousFlag: false,
+				searchValue: '',
+				searchBorder: 'none'
+			};
+		},
+		mounted() {
+			this.data = this.searchList;
+		},
+		methods: {
+			searchDown() {
+				this.searchFlag === false ? this.searchFlag = true : this.searchFlag = false;
+				this.searchFous === '0' ? this.searchFous = 'auto' : this.searchFous = '0';
+				this.searchBorder === 'none' ? this.searchBorder = '1px solid #D9D9D9' : this.searchBorder = 'none';
+				this.fousFlag === false ? this.fousFlag = true : this.fousFlag = false;
+			},
+			choseValue(value) {
+				this.searchValue = value;
+				this.searchDown();
+				// this.selectValue.data = '我被修改了'
+				this.$emit('select-func', value);
+			}
 		}
-	}
-};
+	};
 </script>
 
 <style scoped>

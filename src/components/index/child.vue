@@ -1,40 +1,38 @@
 <template>
-  <div>
-    <h3>子组件内容，姓名：{{value}}</h3>
+	<div>
+		<h3>子组件内容，姓名：{{ value }}</h3>
 		<!-- <button @click='change'>子组件改名</button> -->
 		<!-- <input type="checkbox" v-model='ischecked' @change="change"> -->
-		<input type="text" v-model='hh' @input="change">
-  </div>
+		<input v-model="hh" type="text" @input="change">
+	</div>
 </template>
+
 <script>
-export default {
-	name: 'child',
-	model: {
-		prop: 'value',
-		event: 'fn'
-	},
-	props: ['value'],
-	data () {
-		return {
-			gg: '李四',
-			hh: '',
-			ischecked: true
-		};
-	},
-	computed: {
-	},
-	mounted() {
-		console.log(this.$attrs, 888);
-	},
-	methods: {
-		change(){
-			this.$emit('fn', this.hh);
+	export default {
+		name: 'Child',
+		model: {
+			prop: 'value',
+			event: 'fn'
 		},
-		log(e){
-			this.$emit('fn', this.hh);
+		props: { value: String },
+		data() {
+			return {
+				gg: '李四',
+				hh: '',
+				ischecked: true
+			};
+		},
+		computed: {},
+		mounted() {
+			console.log(this.$attrs, 888);
+		},
+		methods: {
+			change() {
+				this.$emit('fn', this.hh);
+			},
+			log(e) {
+				this.$emit('fn', this.hh);
+			}
 		}
-	}
-};
+	};
 </script>
-<style>
-</style>

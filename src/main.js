@@ -19,11 +19,11 @@ Vue.use(ElementUI);
 Vue.use(Swiper);
 Vue.prototype.$echarts = Echarts;
 
-function hasBtnPermission (permission) {
-	let getBtnPermissionArr = JSON.parse(localStorage.getItem('btnPermission'));
+function hasBtnPermission(permission) {
+	const getBtnPermissionArr = JSON.parse(localStorage.getItem('btnPermission'));
 	return getBtnPermissionArr.indexOf(permission) > -1;
 }
-let btnPermissionArr = ['a', 'b', 'c', 'd', 'e', 'f'];
+const btnPermissionArr = ['a', 'b', 'c', 'd', 'e', 'f'];
 localStorage.setItem('btnPermission', JSON.stringify(btnPermissionArr));
 Vue.prototype.has = hasBtnPermission;
 // Vue.use(Echarts)

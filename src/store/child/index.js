@@ -4,16 +4,12 @@ import two from './two/two';
 Vue.use(Vuex);
 const store = {
 	namespaced: true,
-	state () {
-		return {
-			gg: '333'
-		};
+	state() {
+		return { gg: '333' };
 	},
-	modules: {
-		two
-	},
+	modules: { two },
 	getters: {
-		gg (state) {
+		gg(state) {
 			return state.gg;
 		}
 	}
