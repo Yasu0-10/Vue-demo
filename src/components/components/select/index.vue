@@ -10,98 +10,98 @@
     </div>
     <!-- 下拉框 -->
     <div class="option-wrapper" style="display: none;">
-      <div class="option-item"  v-for = "(item,index) in subject" :key="index" @mouseout="out($event)" @mouseover="move($event)" @click = "choose(item)">{{item.text}}</div>
+      <div class="option-item"  v-for = "(item,index) in subject" :key="index" @mouseout="out($event)" @mouseover="move($event)" @click="choose(item, $event)">{{item.text}}</div>
     </div>
   </div>
 </div>
 </template>
 <script>
-export default{
-  name: 'selectBox',
-  model: {
-    prop: 'value',
-    event: 'changeSelect'
-  },
-  props: {
-    // 盒子宽度
-    selectWidth: {
-      type: Number,
-      default: 100
-    },
-    // 下拉选项
-    subject: {
-      type: Array,
-      default: function () {
-        return []
-      }
-    },
-    // 值
-    value: {},
-    // 默认选框文字
-    selectContent: {
-      type: Object,
-      default: function () {
-        return {value: 0, text: '请选择'}
-      }
-    }
-  },
-  mounted () {
-    // 组件的宽度由传值决定
-    document.querySelector('.selectWrap').style.width = this.selectWidth + 'px'
-  },
-  computed: {
-    // 下拉框外盒子
-    optionWrapper () {
-      return document.querySelector('.option-wrapper')
-    },
-    // 输入框外盒子
-    selectCon () {
-      return document.querySelector()
-    },
-    // 下拉选项
-    subjectList () {
-      return document.getElementsByClassName('option-item')
-    }
-  },
-  methods: {
-    // 移入时排他的hover效果
-    move (event) {
-      for (var item of this.subjectList) {
-        item.classList.remove('hover')
-      }
-      event.currentTarget.classList.add('hover')
-    },
-    // 移出时当前取消hover效果
-    out (event) {
-      event.currentTarget.classList.remove('hover')
-    },
-    // 点击输入框
-    triggerOption () {
-      // 切换下拉显示隐藏
-      if (this.optionWrapper.style.display === 'none') {
-        this.optionWrapper.style.display = 'block'
-      } else {
-        this.optionWrapper.style.display = 'none'
-      }
-      // 下拉框出现时，已被选中的添加hover效果其他去除
-      for (var item of this.subjectList) {
-        if (item.innerHTML === this.selectContent.text) {
-          item.classList.add('hover')
-        } else {
-          item.classList.remove('hover')
-        }
-      }
-    },
-    // 选中下拉选项
-    choose (item) {
-      // 隐藏下拉框，然后将空对象传给父方法changeSelect
-      // this.selectContent.text = item.text
-      // this.selectContent.value = item.value;
-      this.optionWrapper.style.display = 'none'
-      this.$emit('changeSelect', item.text)
-    }
-  }
-}
+export default {
+	name: 'selectBox',
+	model: {
+		prop: 'value',
+		event: 'changeSelect'
+	},
+	props: {
+		// 盒子宽度
+		selectWidth: {
+			type: Number,
+			default: 100
+		},
+		// 下拉选项
+		subject: {
+			type: Array,
+			default: function () {
+				return [];
+			}
+		},
+		// 值
+		value: {},
+		// 默认选框文字
+		selectContent: {
+			type: Object,
+			default: function () {
+				return {value: 0, text: '请选择'};
+			}
+		}
+	},
+	mounted () {
+		// 组件的宽度由传值决定
+		document.querySelector('.selectWrap').style.width = this.selectWidth + 'px';
+	},
+	computed: {
+		// 下拉框外盒子
+		optionWrapper () {
+			return document.querySelector('.option-wrapper');
+		},
+		// 输入框外盒子
+		selectCon () {
+			return document.querySelector();
+		},
+		// 下拉选项
+		subjectList () {
+			return document.getElementsByClassName('option-item');
+		}
+	},
+	methods: {
+		// 移入时排他的hover效果
+		move (event) {
+			for (var item of this.subjectList) {
+				item.classList.remove('hover');
+			}
+			event.currentTarget.classList.add('hover');
+		},
+		// 移出时当前取消hover效果
+		out (event) {
+			event.currentTarget.classList.remove('hover');
+		},
+		// 点击输入框
+		triggerOption () {
+			// 切换下拉显示隐藏
+			if (this.optionWrapper.style.display === 'none') {
+				this.optionWrapper.style.display = 'block';
+			} else {
+				this.optionWrapper.style.display = 'none';
+			}
+			// 下拉框出现时，已被选中的添加hover效果其他去除
+			for (var item of this.subjectList) {
+				if (item.innerHTML === this.selectContent.text) {
+					item.classList.add('hover');
+				} else {
+					item.classList.remove('hover');
+				}
+			}
+		},
+		// 选中下拉选项
+		choose (item, e) {
+			// 隐藏下拉框，然后将空对象传给父方法changeSelect
+			// this.selectContent.text = item.text
+			// this.selectContent.value = item.value;
+			this.optionWrapper.style.display = 'none';
+			this.$emit('changeSelect', item.text, item.value, e);
+		}
+	}
+};
 </script>
 <style>
   .select{

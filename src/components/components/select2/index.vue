@@ -14,39 +14,39 @@
 
 <script type="text/ecmascript-6">
 export default {
-  data () {
-    return {
-      data: [],
-      dataHas: true,
-      searchFlag: false,
-      searchFous: '0',
-      fousFlag: false,
-      searchValue: '',
-      searchBorder: 'none'
-    }
-  },
-  props: {
-    searchList: Array,
-    selectValue: Object
-  },
-  mounted () {
-    this.data = this.searchList
-  },
-  methods: {
-    searchDown () {
-      this.searchFlag === false ? this.searchFlag = true : this.searchFlag = false
-      this.searchFous === '0' ? this.searchFous = 'auto' : this.searchFous = '0'
-      this.searchBorder === 'none' ? this.searchBorder = '1px solid #D9D9D9' : this.searchBorder = 'none'
-      this.fousFlag === false ? this.fousFlag = true : this.fousFlag = false
-    },
-    choseValue (value) {
-      this.searchValue = value
-      this.searchDown()
-      // this.selectValue.data = '我被修改了'
-      this.$emit('selectFunc', value)
-    }
-  }
-}
+	data () {
+		return {
+			data: [],
+			dataHas: true,
+			searchFlag: false,
+			searchFous: '0',
+			fousFlag: false,
+			searchValue: '',
+			searchBorder: 'none'
+		};
+	},
+	props: {
+		searchList: Array,
+		selectValue: Object
+	},
+	mounted () {
+		this.data = this.searchList;
+	},
+	methods: {
+		searchDown () {
+			this.searchFlag === false ? this.searchFlag = true : this.searchFlag = false;
+			this.searchFous === '0' ? this.searchFous = 'auto' : this.searchFous = '0';
+			this.searchBorder === 'none' ? this.searchBorder = '1px solid #D9D9D9' : this.searchBorder = 'none';
+			this.fousFlag === false ? this.fousFlag = true : this.fousFlag = false;
+		},
+		choseValue (value) {
+			this.searchValue = value;
+			this.searchDown();
+			// this.selectValue.data = '我被修改了'
+			this.$emit('selectFunc', value);
+		}
+	}
+};
 </script>
 
 <style scoped>

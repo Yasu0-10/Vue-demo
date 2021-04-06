@@ -10,7 +10,6 @@ import red from '@/components/index/red';
 import swiper from '@/components/swiper';
 import export1 from '@/components/export/index';
 import slot from '@/components/slot';
-import question from '@/components/question';
 import wangeditor from '@/components/wangeditor';
 import componentsTest from '@/components/componentsTest';
 
@@ -75,11 +74,6 @@ export default new Router({
 			path: '/slot',
 			name: 'slot',
 			component: slot
-		},
-		{
-			path: '/question', // 题库
-			name: 'question',
-			component: question
 		},
 		{
 			path: '/wangeditor', // 富文本编辑器
