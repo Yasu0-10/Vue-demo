@@ -12,6 +12,7 @@ import export1 from '@/components/export/index';
 import slot from '@/components/slot';
 import wangeditor from '@/components/wangeditor';
 import componentsTest from '@/components/componentsTest';
+import filters from '@/components/filters';
 
 // 把路由当成一个插件来使用
 // 模块化工程中 必须要用 Vue.use() 安装一下
@@ -84,6 +85,11 @@ export default new Router({
 			path: '/componentsTest', // 组件测试
 			name: 'componentsTest',
 			component: componentsTest
+		},
+		{
+			path: '/filters', // 过滤器
+			name: 'filters',
+			component: filters
 		}
 	]
 });

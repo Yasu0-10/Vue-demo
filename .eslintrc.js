@@ -81,7 +81,7 @@ module.exports = {
 
 		// eslint-plugin-vue strongly recommended
 		'vue/attribute-hyphenation': ['error', 'always'],
-		'vue/component-definition-name-casing': ['error', 'PascalCase'],
+		"vue/component-definition-name-casing": ["off", "PascalCase"],
 		'vue/html-closing-bracket-newline': ['error', {
 			singleline: 'never',
 			multiline: 'never'
