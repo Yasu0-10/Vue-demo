@@ -37,8 +37,6 @@
 		},
 		created() {
 			this.add();
-		// this.obj.name = 2;
-		// console.log(111);
 		},
 		mounted() {
 			// this.num = 2;

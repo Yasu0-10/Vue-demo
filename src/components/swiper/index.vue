@@ -17,6 +17,7 @@
 		data() {
 			return {
 				swiperOption: {
+					slidesPerView: 3,
 					// 显示分页
 					pagination: {
 						el: '.swiper-pagination',
